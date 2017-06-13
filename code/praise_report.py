@@ -1,9 +1,9 @@
+#! /env/python
 
 # coding: utf-8
 
 # In[31]:
 
-get_ipython().magic(u'matplotlib inline')
 import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib
