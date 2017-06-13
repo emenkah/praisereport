@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[11]:
+# In[31]:
 
 get_ipython().magic(u'matplotlib inline')
 import numpy as np
@@ -10,26 +10,51 @@ import matplotlib
 import pandas as pd
 
 
-# In[12]:
+# In[53]:
 
 path = '../data/Report.csv'
 report = pd.read_csv(path)
-report['MS_Code']=report.Mustard_Seed.map({'Agapao':0,'Ahinsan':1,'Aleph':2, 'Balaal':3, 'Bohyen':4,'Doxa':5,
-                                           'El-Zoe':6,'GTUC':7,'Koinonia':8,'Mowed':9,'Oforikrom':10,'Parah':11,
+report['MS_Code']=report.Mustard_Seed.map({'Agapao':0,
+                                           'Ahinsan':1,
+                                           'Aleph':2,
+                                           'Balaal':3,
+                                           'Bohyen':4,
+                                           'Doxa':5,
+                                           'El-Zoe':6,
+                                           'GTUC':7,
+                                           'Koinonia':8,
+                                           'Mowed':9,
+                                           'Oforikrom':10,
+                                           'Parah':11,
                                            'Sodzo':12})
 
-Mustard_Seeds =['Agapao','Ahinsan','Aleph', 'Balaal', 'Bohyen','Doxa',
-                'El-Zoe','GTUC','Koinonia','Mowed','Oforikrom','Parah',
+Mustard_Seeds =['Agapao',
+                'Ahinsan',
+                'Aleph',
+                'Balaal',
+                'Bohyen',
+                'Doxa',
+                'El-Zoe',
+                'GTUC',
+                'Koinonia',
+                'Mowed',
+                'Oforikrom',
+                'Parah',
                 'Sodzo']
+
 print report.shape
-print report.Mustard_Seed.value_counts()
+#print report.Mustard_Seed.value_counts()
+#print len(report.Mustard_Seed.keys)
 #print report.Date.value_counts()
-report.head(2)
+#report.head(2)
+print (len(report.Mustard_Seed.unique()))
+lght = report.Mustard_Seed.unique()
+print lght
+report.Mustard_Seed.unique()
 
 
-# In[13]:
+# In[54]:
 
-#X_test[(y_pred_class ==1) & (y_test==0)]
 Date =  report.Date
 MS = report.Mustard_Seed
 MSCode = report.MS_Code 
@@ -40,16 +65,11 @@ SS = report.SS_Attendance
 TO = report.Offertory
 
 
-# In[14]:
-
-print len(Mustard_Seeds)
-
-
-# In[30]:
+# In[55]:
 
 ls = [6,8]
 HAT = []
-for i in range(len(Mustard_Seeds)):
+for i in range(len(report.Mustard_Seed.unique())-1):
     D1 = Date[MSCode == i]
     TAtt = TA[MSCode == i]
     HAT.append(max(TAtt))
@@ -67,7 +87,7 @@ for i in range(len(Mustard_Seeds)):
     plt.savefig("../plots/"+Mustard_Seeds[i]+str(".png"))
     plt.show()
     
-X = range(len(Mustard_Seeds))
+X = range(len(report.Mustard_Seed.unique())-1)
 plt.xticks(X, Mustard_Seeds)
 plt.bar(X,HAT)
 plt.savefig("../plots/Highest_attendance")
@@ -75,35 +95,12 @@ plt.savefig("../plots/Highest_attendance")
 
 # In[ ]:
 
-#MS.sort_values()
 
-
-# In[ ]:
-
-print MS[8]
 
 
 # In[ ]:
 
 
-
-#names = ['anne','barbara','cathy']
-#counts = [3230,2002,5456]
-#pylab.figure(1)
-#x = range(3)
-#pylab.xticks(x, names)
-#pylab.plot(x,counts,"g")
-#pylab.show()
-
-
-# In[ ]:
-
-print report.MS_Code.key(1
-
-
-# In[ ]:
-
-plt.hist(report.Offertory)
 
 
 # In[ ]:
